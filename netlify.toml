@@ -44,4 +44,7 @@
 # OPENPHONE_API_KEY=              # OpenPhone API key
 # OPENPHONE_PHONE_NUMBER_ID=      # OpenPhone phone number ID for SMS
 # NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN= # Mapbox public token for address autocomplete (client-side)
+#   Restrict token in Mapbox to https://suncoatpainting.com/* and preview domain
+
+
 

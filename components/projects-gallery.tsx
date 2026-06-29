@@ -49,7 +49,7 @@ export function ProjectsGallery() {
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition duration-300 group-hover:scale-[1.02]"
                 />
-                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-[10px] font-medium text-slate-700 shadow md:left-4 md:top-4 md:text-xs md:px-3 md:py-1">
+                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-medium text-slate-700 shadow md:left-4 md:top-4 md:text-xs md:px-3 md:py-1">
                   <Paintbrush className="h-3 w-3" /> {project.tag}
                 </div>
               </div>

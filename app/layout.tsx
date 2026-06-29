@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.brand,
     locale: "en_US",
     type: "website",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "SunCoat Painting — residential painting in Central Florida" }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "SunCoat Painting — residential painting in Central Florida" }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/images/hero.jpg"],
+    images: ["/images/og.jpg"],
   },
   // keywords removed intentionally — ignored by Google, only exposes targeting.
 };

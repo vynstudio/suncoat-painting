@@ -260,7 +260,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
         name="company"
         tabIndex={-1}
         autoComplete="off"
-        className="absolute -left-[9999px] opacity-0"
+        className="absolute -left-[9999px]"
         aria-hidden="true"
       />
 

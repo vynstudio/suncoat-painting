@@ -15,6 +15,7 @@ export function SiteHeader() {
     { href: "/projects",  label: "Projects" },
     { href: "/#areas",    label: "Areas" },
     { href: "/contact",   label: "Contact" },
+    { href: "/blog",      label: "Blog" },
   ];
 
   return (
@@ -34,7 +35,7 @@ export function SiteHeader() {
             <div className="text-base font-semibold tracking-tight text-slate-950 leading-none">
               {siteConfig.brand}
             </div>
-            <div className="text-[10px] -mt-0.5 text-slate-500">Central Florida</div>
+            <div className="text-xs -mt-0.5 text-slate-500">Central Florida</div>
           </div>
 
           {/* Desktop + iPad: horizontal logo (icon + wordmark) from the kit */}
@@ -58,7 +59,6 @@ export function SiteHeader() {
               {link.label}
             </a>
           ))}
-          <Link href="/blog" className="hover:text-slate-950 transition-colors">Blog</Link>
         </nav>
 
         {/* Desktop + iPad CTAs */}
