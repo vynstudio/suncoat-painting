@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-2 text-white">
               <Image 
-                src="/logos/icon.svg" 
+                src="/logos/icon-mono-white.svg" 
                 alt="SunCoat" 
                 width={28}
                 height={28}

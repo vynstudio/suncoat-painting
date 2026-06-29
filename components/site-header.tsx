@@ -21,7 +21,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        {/* Logo from concept-02-stacked: icon + text on mobile, full horizontal logo on desktop */}
+        {/* Logo from suncoat-stacked-kit: icon mark (mobile) + stacked logo (desktop) */}
         <Link href="/" className="flex items-center gap-3">
           {/* Mobile: icon mark + full "SunCoat Painting" name */}
           <Image 
@@ -38,12 +38,12 @@ export function SiteHeader() {
             <div className="text-xs -mt-0.5 text-slate-500">Central Florida</div>
           </div>
 
-          {/* Desktop + iPad: horizontal logo (icon + wordmark) from the kit */}
+          {/* Desktop + iPad: stacked logo from the kit */}
           <Image 
-            src="/logos/horizontal-primary.svg" 
+            src="/logos/stacked.svg" 
             alt="SunCoat Painting" 
-            width={113}
-            height={32}
+            width={80}
+            height={50}
             className="hidden h-8 md:block" 
           />
         </Link>
