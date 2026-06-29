@@ -76,11 +76,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
   };
 
   const selectAddress = (suggestion: any) => {
-    const fullAddress =
-      suggestion.full_address ||
-      suggestion.place_formatted ||
-      suggestion.name ||
-      "";
+    const fullAddress = suggestion.place_name || suggestion.text || "";
     setFormData((prev) => ({ ...prev, address: fullAddress }));
     setAddressSuggestions([]);
     setShowAddressSuggestions(false);
@@ -202,6 +198,12 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
               onChange={handleAddressChange}
               onFocus={() => addressSuggestions.length > 0 && setShowAddressSuggestions(true)}
               onBlur={() => setTimeout(() => setShowAddressSuggestions(false), 150)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && addressSuggestions.length > 0) {
+                  e.preventDefault();
+                  selectAddress(addressSuggestions[0]);
+                }
+              }}
               className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none pr-10"
               placeholder="Start typing your address for autocomplete..."
             />
@@ -217,7 +219,10 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
                     key={idx}
                     type="button"
                     className="w-full text-left px-4 py-2.5 hover:bg-amber-50 active:bg-amber-100"
-                    onClick={() => selectAddress(sug)}
+                    onMouseDown={(e) => {
+                      e.preventDefault(); // prevent input blur
+                      selectAddress(sug);
+                    }}
                   >
                     {sug.place_name || sug.text}
                   </button>
