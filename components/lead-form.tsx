@@ -29,10 +29,12 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
   const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
   const [showAddressSuggestions, setShowAddressSuggestions] = useState(false);
   const [addressDebounce, setAddressDebounce] = useState<NodeJS.Timeout | null>(null);
+  const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false);
 
   const fetchMapboxSuggestions = async (query: string) => {
     if (!query || query.length < 3) {
       setAddressSuggestions([]);
+      setIsLoadingSuggestions(false);
       return;
     }
     const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
@@ -40,25 +42,28 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
       console.warn("NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN not set");
       return;
     }
+    setIsLoadingSuggestions(true);
     try {
       const params = new URLSearchParams({
-        q: query,
         access_token: token,
         limit: "5",
         country: "US",
         language: "en",
         types: "address",
+        autocomplete: "true",
       });
       const res = await fetch(
-        `https://api.mapbox.com/search/searchbox/v1/suggest?${params.toString()}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?${params.toString()}`
       );
-      if (!res.ok) throw new Error("Suggest failed");
+      if (!res.ok) throw new Error(`Geocoding failed with status ${res.status}`);
       const data = await res.json();
-      setAddressSuggestions(data.suggestions || []);
+      setAddressSuggestions(data.features || []);
       setShowAddressSuggestions(true);
     } catch (err) {
       console.error("Mapbox autocomplete error", err);
       setAddressSuggestions([]);
+    } finally {
+      setIsLoadingSuggestions(false);
     }
   };
 
@@ -197,9 +202,14 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
               onChange={handleAddressChange}
               onFocus={() => addressSuggestions.length > 0 && setShowAddressSuggestions(true)}
               onBlur={() => setTimeout(() => setShowAddressSuggestions(false), 150)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none pr-10"
               placeholder="Start typing your address for autocomplete..."
             />
+            {isLoadingSuggestions && (
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                <div className="animate-spin h-4 w-4 border-2 border-slate-300 border-t-amber-500 rounded-full"></div>
+              </div>
+            )}
             {showAddressSuggestions && addressSuggestions.length > 0 && (
               <div className="absolute z-50 mt-1 w-full bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-auto text-sm">
                 {addressSuggestions.map((sug, idx) => (
@@ -209,7 +219,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
                     className="w-full text-left px-4 py-2.5 hover:bg-amber-50 active:bg-amber-100"
                     onClick={() => selectAddress(sug)}
                   >
-                    {sug.full_address || sug.place_formatted || sug.name}
+                    {sug.place_name || sug.text}
                   </button>
                 ))}
               </div>
