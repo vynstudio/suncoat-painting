@@ -6,9 +6,11 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 const city = getCityBySlug("altamonte-springs")!;
 
 export async function generateMetadata() {
+  const canonical = `${siteConfig.url}/${city.slug}-painting`;
   return {
     title: `House Painting in Altamonte Springs, FL | ${siteConfig.brand}`,
     description: `Professional house painting in Altamonte Springs. Interior painting for homes & condos, exterior services, and expert trim work. Free quotes for ${city.fullName}.`,
+    alternates: { canonical },
   };
 }
 

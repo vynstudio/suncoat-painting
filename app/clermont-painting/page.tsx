@@ -6,9 +6,11 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 const city = getCityBySlug("clermont")!;
 
 export async function generateMetadata() {
+  const canonical = `${siteConfig.url}/${city.slug}-painting`;
   return {
     title: `House Painting in Clermont, FL | ${siteConfig.brand}`,
     description: `Residential painting services in Clermont, FL. Interior and exterior painting for homes in the hills and lake communities. Professional prep and durable finishes. Free quotes.`,
+    alternates: { canonical },
   };
 }
 

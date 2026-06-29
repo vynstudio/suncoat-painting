@@ -18,8 +18,8 @@ const reasons = [
   },
   {
     icon: Users,
-    title: "Referral-Driven Business",
-    desc: "Most of our work comes from happy homeowners and real estate professionals.",
+    title: "12+ Years, Hundreds of Homes",
+    desc: "Proven track record with referrals across Central Florida.",
   },
 ];
 

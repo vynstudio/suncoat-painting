@@ -6,9 +6,11 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 const city = getCityBySlug("maitland")!;
 
 export async function generateMetadata() {
+  const canonical = `${siteConfig.url}/${city.slug}-painting`;
   return {
     title: `House Painting in Maitland, FL | ${siteConfig.brand}`,
     description: `Premium house painting in Maitland. Interior and exterior services for upscale homes near lakes and parks. Free quotes for ${city.fullName}.`,
+    alternates: { canonical },
   };
 }
 

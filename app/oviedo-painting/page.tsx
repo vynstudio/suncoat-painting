@@ -6,9 +6,11 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 const city = getCityBySlug("oviedo")!;
 
 export async function generateMetadata() {
+  const canonical = `${siteConfig.url}/${city.slug}-painting`;
   return {
     title: `House Painting in Oviedo, FL | ${siteConfig.brand}`,
     description: `Professional residential painting in Oviedo. Interior & exterior painting for family homes and historic properties. Free quotes for ${city.fullName}.`,
+    alternates: { canonical },
   };
 }
 

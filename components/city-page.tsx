@@ -40,7 +40,7 @@ export function CityPage({ city, introText, whyParagraph, services, neighborhood
     { icon: Shield, title: "Expert Local Prep", desc: "We know Florida's humidity, sun, and storms." },
     { icon: Award, title: "Premium Materials", desc: "Mildew-resistant, UV-protected coatings." },
     { icon: Clock, title: "On-Time & Clean", desc: "Efficient crews that respect your home." },
-    { icon: CheckCircle, title: "Satisfaction Guaranteed", desc: "Professional, background-checked crews you can trust." },
+    { icon: CheckCircle, title: "12+ Years Experience", desc: "Hundreds of Central Florida homes painted." },
   ];
 
   return (

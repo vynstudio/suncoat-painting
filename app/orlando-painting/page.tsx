@@ -6,12 +6,15 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 const city = getCityBySlug("orlando")!;
 
 export async function generateMetadata() {
+  const canonical = `${siteConfig.url}/${city.slug}-painting`;
   return {
     title: `House Painting in Orlando, FL | Expert Painters ${siteConfig.brand}`,
     description: `Professional house painting in Orlando. Interior & exterior painting, trim work & color consultation. Experienced painters serving ${city.fullName} and nearby areas. Free quotes.`,
+    alternates: { canonical },
     openGraph: {
       title: `House Painting Orlando FL | ${siteConfig.brand}`,
       description: `Top-rated residential painting in Orlando. Careful prep, premium finishes that last in Florida weather.`,
+      url: canonical,
     },
   };
 }

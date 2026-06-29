@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
   },
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
     title: `${siteConfig.brand} — Professional House Painting in Orlando & Central Florida`,
     description: siteConfig.description,
