@@ -74,6 +74,16 @@ export const siteConfig = {
       name: "Clermont",
       fullName: "Clermont, FL",
     },
+    {
+      slug: "oviedo",
+      name: "Oviedo",
+      fullName: "Oviedo, FL",
+    },
+    {
+      slug: "maitland",
+      name: "Maitland",
+      fullName: "Maitland, FL",
+    },
   ] as City[],
 
   // === BUSINESS DETAILS ===
@@ -81,7 +91,7 @@ export const siteConfig = {
   licenseInfo: "Licensed & Insured in Florida",
   url: "https://suncoatingpainting.com",
 
-  // === SEO / CONTENT ===
+  // === SEO / LOCAL SEO ===
   keywords: [
     "house painting Orlando",
     "residential painting Central Florida",
@@ -89,6 +99,29 @@ export const siteConfig = {
     "interior painting Winter Park",
     "exterior painting Winter Garden",
     "professional painters Clermont",
+    "Orlando house painters",
+    "Central Florida painters",
+  ],
+
+  // For structured data
+  address: {
+    streetAddress: "123 Main St", // TODO: replace with real
+    addressLocality: "Orlando",
+    addressRegion: "FL",
+    postalCode: "32801",
+    addressCountry: "US",
+  },
+  geo: {
+    latitude: 28.5383,
+    longitude: -81.3792,
+  },
+  areaServed: [
+    "Orlando, FL",
+    "Winter Park, FL",
+    "Altamonte Springs, FL",
+    "Winter Garden, FL",
+    "Clermont, FL",
+    "Central Florida",
   ],
 } as const;
 

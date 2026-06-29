@@ -27,41 +27,40 @@ npm run dev
 
 ## Deploy to GitHub + Netlify
 
-### 1. Initialize Git & push to GitHub
+The project is already git-initialized and committed. Run these commands:
+
+### 1. Push to GitHub
 
 ```bash
-# Inside home-painting-landing/
-git init
-git add .
-git commit -m "Initial commit - SunCoat Painting site"
-```
+# 1. Create a new repo on GitHub first (recommended name: suncoating-painting or suncoat-site)
+#    Do NOT initialize it with README/gitignore (we already have them)
 
-Create a new repository on GitHub (e.g. `suncoat-painting-site`), then:
-
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
 git branch -M main
 git push -u origin main
 ```
 
-### 2. Deploy on Netlify
+### 2. Deploy on Netlify (recommended)
 
-1. Go to https://app.netlify.com
-2. Click **"Add new site" → "Import an existing project"**
-3. Connect your GitHub account and select the repo
-4. Netlify should auto-detect Next.js:
+1. Go to [https://app.netlify.com](https://app.netlify.com)
+2. **Add new site** → **Import an existing project**
+3. Choose GitHub → select your new repository
+4. Netlify will auto-detect it's a Next.js project:
    - Build command: `npm run build`
    - Publish directory: `.next`
-5. (Optional) Add environment variables if using the quote API (e.g. `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`)
-6. Deploy
+5. Click Deploy.
 
-### 3. Custom Domain
+Optional: In Site settings → Environment variables, add any you need:
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
 
-1. In Netlify → Domain settings → Add custom domain
-2. Enter `suncoatingpainting.com`
-3. Follow Netlify's instructions to point DNS (CNAME or Netlify DNS)
+### 3. Connect your custom domain
 
-The site supports API routes (quote form) and will work fully on Netlify.
+1. Netlify → Domain settings → **Add custom domain**
+2. Add `suncoatingpainting.com`
+3. Follow the DNS instructions (Netlify will give you the exact records).
+
+The lead form (`/api/quote`) uses Next.js API routes and will work as serverless functions on Netlify.
 
 ## Next Steps (with client)
 - Finalize company name & branding

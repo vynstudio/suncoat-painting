@@ -26,7 +26,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="border-b border-slate-100 bg-white py-16">
+    <section id="services" className="border-b border-slate-100 bg-white section-padding">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-10 max-w-xl">
           <div className="text-xs font-semibold tracking-[2px] text-amber-600">WHAT WE DO BEST</div>
@@ -36,17 +36,18 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {/* Mobile: 1 col | iPad: 2 col | Desktop: 4 col */}
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition hover:border-amber-200 hover:shadow-md"
+              className="group rounded-3xl border border-slate-100 bg-white p-5 sm:p-6 shadow-sm transition hover:border-amber-200 hover:shadow-md"
             >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-600">
-                <service.icon className="h-5 w-5" />
+              <div className="mb-4 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-600">
+                <service.icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
-              <h3 className="text-lg font-semibold tracking-tight text-slate-900">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.desc}</p>
+              <h3 className="text-base sm:text-lg font-semibold tracking-tight text-slate-900">{service.title}</h3>
+              <p className="mt-1.5 sm:mt-2 text-sm leading-relaxed text-slate-600">{service.desc}</p>
             </div>
           ))}
         </div>

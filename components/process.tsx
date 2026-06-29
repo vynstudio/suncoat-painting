@@ -36,7 +36,8 @@ export function Process() {
           <h2 className="mt-2 text-3xl font-semibold tracking-tighter">How we deliver consistent, high-quality results</h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* Mobile: 1 col | iPad: 2 col | Desktop: 4 col */}
+        <div className="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <div key={i} className="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition hover:border-amber-200 hover:shadow-md">
               <div className="flex items-center gap-3">

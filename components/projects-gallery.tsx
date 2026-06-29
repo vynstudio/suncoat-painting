@@ -1,4 +1,5 @@
 import { Paintbrush } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 const projects = [
   {
@@ -23,7 +24,7 @@ const projects = [
 
 export function ProjectsGallery() {
   return (
-    <section id="projects" className="border-b border-slate-100 bg-white py-16">
+    <section id="projects" className="border-b border-slate-100 bg-white section-padding">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 flex items-end justify-between">
           <div>
@@ -35,22 +36,23 @@ export function ProjectsGallery() {
           </a>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        {/* Mobile: 1 col (stack) | iPad: 2 col | Desktop: 3 col */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <div key={index} className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition hover:shadow-md">
               <div className="relative aspect-[16/11] overflow-hidden bg-slate-200">
                 <img
                   src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.025]"
+                  alt={`${project.title} - ${project.location} residential painting project by ${siteConfig.brand}`}
+                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
                 />
-                <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-slate-700 shadow">
+                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-[10px] font-medium text-slate-700 shadow md:left-4 md:top-4 md:text-xs md:px-3 md:py-1">
                   <Paintbrush className="h-3 w-3" /> {project.tag}
                 </div>
               </div>
-              <div className="p-5">
-                <div className="font-semibold tracking-tight">{project.title}</div>
-                <div className="text-sm text-slate-500">{project.location}</div>
+              <div className="p-4 md:p-5">
+                <div className="font-semibold tracking-tight text-sm md:text-base">{project.title}</div>
+                <div className="text-xs md:text-sm text-slate-500">{project.location}</div>
               </div>
             </div>
           ))}

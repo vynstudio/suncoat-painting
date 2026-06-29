@@ -5,10 +5,15 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 
 const city = getCityBySlug("winter-garden")!;
 
-export const metadata = {
-  title: `Painting Services Winter Garden | ${siteConfig.brand}`,
-  description: `Residential painting experts serving Winter Garden, FL. Interior and exterior painting with excellent prep and communication.`,
-};
+export async function generateMetadata() {
+  return {
+    title: `House Painting in Winter Garden, FL | ${siteConfig.brand}`,
+    description: `Professional residential painting in Winter Garden. Interior & exterior services with expert prep. Free quotes for ${city.fullName}.`,
+    openGraph: {
+      title: `Winter Garden House Painters | ${siteConfig.brand}`,
+    },
+  };
+}
 
 export default function WinterGardenPainting() {
   return (

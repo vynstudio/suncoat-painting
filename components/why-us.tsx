@@ -25,7 +25,7 @@ const reasons = [
 
 export function WhyUs() {
   return (
-    <section className="border-b border-slate-100 bg-slate-50 py-16">
+    <section className="border-b border-slate-100 bg-slate-50 section-padding">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-10 max-w-xl">
           <div className="text-xs font-semibold tracking-[2px] text-amber-600">WHY HOMEOWNERS TRUST US</div>
@@ -35,7 +35,8 @@ export function WhyUs() {
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {/* Mobile 1 | iPad 2 | Desktop 4 */}
+        <div className="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, index) => (
             <div
               key={index}

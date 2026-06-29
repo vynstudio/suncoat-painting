@@ -4,8 +4,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
-  title: "Contact & Free Quotes",
-  description: `Request a free painting quote from ${siteConfig.brand}. Serving Central Florida homeowners.`,
+  title: "Contact Us | Free Painting Quotes Central Florida",
+  description: `Get a free quote for house painting in Orlando, Winter Park, Winter Garden and Central Florida. Call or submit the form — we respond fast.`,
 };
 
 export default function ContactPage() {

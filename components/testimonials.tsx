@@ -27,7 +27,8 @@ export function Testimonials() {
           <h2 className="mt-2 text-3xl font-semibold tracking-tighter">Real results, real people</h2>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        {/* Mobile 1 | iPad + Desktop 3 (or 2 on very small iPad) */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <div key={i} className="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm">
               <Quote className="h-5 w-5 text-amber-600" />

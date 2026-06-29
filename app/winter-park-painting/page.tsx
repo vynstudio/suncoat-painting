@@ -5,10 +5,15 @@ import { siteConfig, getCityBySlug } from "@/lib/site-config";
 
 const city = getCityBySlug("winter-park")!;
 
-export const metadata = {
-  title: `House Painting Winter Park, FL | ${siteConfig.brand}`,
-  description: `Premium residential painting for Winter Park homes. Trusted local painters for interior, exterior, and historic home painting projects.`,
-};
+export async function generateMetadata() {
+  return {
+    title: `House Painting in Winter Park, FL | ${siteConfig.brand}`,
+    description: `Expert house painting in Winter Park. Interior, exterior & historic home painting with premium finishes. Free quotes for ${city.fullName}.`,
+    openGraph: {
+      title: `Winter Park Painters | ${siteConfig.brand}`,
+    },
+  };
+}
 
 export default function WinterParkPainting() {
   return (

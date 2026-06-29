@@ -70,28 +70,29 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Optimized inputs: larger tap areas on mobile/iPad */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1">Full Name</label>
+          <label className="block text-xs font-medium text-slate-600 mb-1.5">Full Name</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+            className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
             placeholder="Jane Smith"
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1">Phone Number</label>
+          <label className="block text-xs font-medium text-slate-600 mb-1.5">Phone Number</label>
           <input
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+            className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
             placeholder="(407) 555-1234"
           />
         </div>
