@@ -3,30 +3,9 @@
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "20"  # Next.js 15 requires Node 18.18+ ; 20 recommended
-  # Explicit to help with dependency tracing on Netlify when there are multiple lockfiles
-
-
-# ============================================
-# REQUIRED ENVIRONMENT VARIABLES
-# Set these in Netlify Dashboard → Site configuration → Environment variables
-# (Never commit real values)
-# ============================================
-
-[build.environment]
-  # Email (Resend)
-  # RESEND_API_KEY=
-
-  # Telegram alerts
-  # TELEGRAM_BOT_TOKEN=
-  # TELEGRAM_CHAT_ID=
-
-  # HubSpot CRM
-  # HUBSPOT_PRIVATE_APP_TOKEN=
-
-  # OpenPhone SMS
-  # OPENPHONE_API_KEY=
-  # OPENPHONE_PHONE_NUMBER_ID=   # ID of the phone number to send from (get from OpenPhone)
+  NODE_VERSION = "20"  # Next.js 15+ requires Node >= 18.18; 20 recommended
+  # NOTE: Real secret values (below) must be set in the Netlify UI (Site configuration > Environment variables)
+  # Do not put real keys here.
 
 # Netlify will auto-install the Next.js plugin for full SSR + API support.
 # If you want to pin it explicitly, uncomment below:
@@ -40,7 +19,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://api.resend.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.resend.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; worker-src 'self' blob:;"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 
 # Cache static assets aggressively
