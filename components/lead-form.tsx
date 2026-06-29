@@ -16,12 +16,69 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
     phone: "",
     email: "",
     address: "",
+    squareFootage: "",
     details: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Mapbox address autocomplete (for better quotes using property data)
+  const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
+  const [showAddressSuggestions, setShowAddressSuggestions] = useState(false);
+  const [addressDebounce, setAddressDebounce] = useState<NodeJS.Timeout | null>(null);
+
+  const fetchMapboxSuggestions = async (query: string) => {
+    if (!query || query.length < 3) {
+      setAddressSuggestions([]);
+      return;
+    }
+    const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+    if (!token) {
+      console.warn("NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN not set");
+      return;
+    }
+    try {
+      const params = new URLSearchParams({
+        q: query,
+        access_token: token,
+        limit: "5",
+        country: "US",
+        language: "en",
+        types: "address",
+      });
+      const res = await fetch(
+        `https://api.mapbox.com/search/searchbox/v1/suggest?${params.toString()}`
+      );
+      if (!res.ok) throw new Error("Suggest failed");
+      const data = await res.json();
+      setAddressSuggestions(data.suggestions || []);
+      setShowAddressSuggestions(true);
+    } catch (err) {
+      console.error("Mapbox autocomplete error", err);
+      setAddressSuggestions([]);
+    }
+  };
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange(e);
+    const value = e.target.value;
+    if (addressDebounce) clearTimeout(addressDebounce);
+    const timeout = setTimeout(() => fetchMapboxSuggestions(value), 320);
+    setAddressDebounce(timeout);
+  };
+
+  const selectAddress = (suggestion: any) => {
+    const fullAddress =
+      suggestion.full_address ||
+      suggestion.place_formatted ||
+      suggestion.name ||
+      "";
+    setFormData((prev) => ({ ...prev, address: fullAddress }));
+    setAddressSuggestions([]);
+    setShowAddressSuggestions(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +104,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
       if (!res.ok) throw new Error("Failed");
 
       setStatus("success");
-      setFormData({ name: "", phone: "", email: "", address: "", details: "" });
+      setFormData({ name: "", phone: "", email: "", address: "", squareFootage: "", details: "" });
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -118,16 +175,48 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-600 mb-1">Property Address / Area</label>
+              <label className="block text-xs font-medium text-slate-600 mb-1">Square Footage (optional)</label>
               <input
-                type="text"
-                name="address"
-                value={formData.address}
+                type="number"
+                name="squareFootage"
+                value={formData.squareFootage}
                 onChange={handleChange}
                 className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
-                placeholder="Winter Park, FL or exact address"
+                placeholder="e.g. 2200"
               />
             </div>
+          </div>
+
+          {/* Address with Mapbox autocomplete */}
+          <div className="relative">
+            <label className="block text-xs font-medium text-slate-600 mb-1">Property Address / Area</label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleAddressChange}
+              onFocus={() => addressSuggestions.length > 0 && setShowAddressSuggestions(true)}
+              onBlur={() => setTimeout(() => setShowAddressSuggestions(false), 150)}
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+              placeholder="Start typing your address for autocomplete..."
+            />
+            {showAddressSuggestions && addressSuggestions.length > 0 && (
+              <div className="absolute z-50 mt-1 w-full bg-white border border-slate-200 rounded-xl shadow-lg max-h-60 overflow-auto text-sm">
+                {addressSuggestions.map((sug, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className="w-full text-left px-4 py-2.5 hover:bg-amber-50 active:bg-amber-100"
+                    onClick={() => selectAddress(sug)}
+                  >
+                    {sug.full_address || sug.place_formatted || sug.name}
+                  </button>
+                ))}
+              </div>
+            )}
+            <p className="text-[10px] text-slate-500 mt-1">
+              Autocomplete powered by Mapbox • Helps us estimate sq footage & prepare accurate quote
+            </p>
           </div>
 
           <div>

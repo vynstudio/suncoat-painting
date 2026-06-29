@@ -40,6 +40,7 @@ export async function POST(req: Request) {
     phone,
     email: String(body.email ?? "").trim(),
     address: String(body.address ?? "").trim(),
+    squareFootage: String(body.squareFootage ?? "").trim(),
     details: String(body.details ?? "").trim(),
     source: String(body.source ?? "unknown"),
     receivedAt: new Date().toISOString(),
@@ -57,6 +58,7 @@ export async function POST(req: Request) {
         <p><strong>Phone:</strong> <a href="tel:${lead.phone}">${lead.phone}</a></p>
         <p><strong>Email:</strong> ${lead.email || "Not provided"}</p>
         <p><strong>Location / Address:</strong> ${lead.address || "Not provided"}</p>
+        <p><strong>Square Footage:</strong> ${lead.squareFootage || "Not provided"}</p>
         <p><strong>Source:</strong> ${lead.source}</p>
         <p><strong>Details:</strong><br/>${lead.details ? lead.details.replace(/\n/g, "<br/>") : "None provided"}</p>
         <p><strong>Received:</strong> ${lead.receivedAt}</p>
@@ -85,6 +87,7 @@ export async function POST(req: Request) {
             <ul>
               <li>Phone: ${lead.phone}</li>
               <li>Location: ${lead.address || "Not provided"}</li>
+              <li>Square Footage: ${lead.squareFootage || "Not provided"}</li>
             </ul>
             <p>Best regards,<br/>The SunCoat Painting Team</p>
             <p><a href="${siteConfig.url}">${siteConfig.url}</a> | ${siteConfig.phoneDisplay}</p>
@@ -108,6 +111,7 @@ export async function POST(req: Request) {
       `Name: ${lead.name}\nPhone: ${lead.phone}\n` +
       `Email: ${lead.email || "N/A"}\n` +
       `Location: ${lead.address || "N/A"}\n` +
+      `Sq Ft: ${lead.squareFootage || "N/A"}\n` +
       `Details: ${lead.details || "N/A"}`;
     try {
       await fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
