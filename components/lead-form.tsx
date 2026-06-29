@@ -73,11 +73,8 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
       onSubmit={handleSubmit} 
       action="/api/quote" 
       method="POST" 
-      data-netlify="true"
-      name="quote"
       className="space-y-4"
     >
-      <input type="hidden" name="form-name" value="quote" />
       {/* Optimized inputs: larger tap areas on mobile/iPad */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
