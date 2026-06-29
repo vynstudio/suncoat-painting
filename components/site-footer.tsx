@@ -21,7 +21,7 @@ export function SiteFooter() {
               <div className="mb-3 text-xs font-medium tracking-widest text-slate-500">COMPANY</div>
               <div className="space-y-1.5">
                 <Link href="/about" className="block hover:text-white">About us</Link>
-                <Link href="/#projects" className="block hover:text-white">Projects</Link>
+                <Link href="/projects" className="block hover:text-white">Projects</Link>
                 <Link href="/contact" className="block hover:text-white">Contact</Link>
               </div>
             </div>

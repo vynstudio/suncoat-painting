@@ -11,7 +11,7 @@ export function SiteHeader() {
   const navLinks = [
     { href: "#services", label: "Services" },
     { href: "#process", label: "Process" },
-    { href: "#projects", label: "Projects" },
+    { href: "/projects", label: "Projects" },
     { href: "#areas", label: "Areas" },
     { href: "/contact", label: "Contact" },
   ];

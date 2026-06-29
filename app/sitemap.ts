@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", priority: 0.8, change: "monthly" as const },
     { path: "/about", priority: 0.7, change: "monthly" as const },
     { path: "/blog", priority: 0.7, change: "weekly" as const },
+    { path: "/projects", priority: 0.8, change: "weekly" as const },
   ].map((p) => ({
     url: `${base}${p.path}`,
     lastModified: new Date(),
