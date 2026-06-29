@@ -30,7 +30,7 @@ export default function ProjectsPage() {
             </p>
             <div className="mt-6">
               <Link 
-                href="#quote" 
+                href="/#quote" 
                 className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800"
               >
                 Get a free quote for your project

@@ -136,8 +136,9 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
       {/* Optimized inputs: larger tap areas on mobile/iPad */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1.5">Full Name</label>
+          <label htmlFor="lead-name" className="block text-xs font-medium text-slate-600 mb-1.5">Full Name</label>
           <input
+            id="lead-name"
             type="text"
             name="name"
             value={formData.name}
@@ -148,15 +149,16 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-slate-600 mb-1.5">Phone Number</label>
+          <label htmlFor="lead-phone" className="block text-xs font-medium text-slate-600 mb-1.5">Phone Number</label>
           <input
+            id="lead-phone"
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             required
             className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
-            placeholder="(321) 758-0094"
+            placeholder="(407) 555-0123"
           />
         </div>
       </div>
@@ -165,24 +167,26 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
         <>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-medium text-slate-600 mb-1">Email (optional)</label>
+              <label htmlFor="lead-email" className="block text-xs font-medium text-slate-600 mb-1.5">Email (optional)</label>
               <input
+                id="lead-email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
                 placeholder="you@email.com"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-600 mb-1">Square Footage (optional)</label>
+              <label htmlFor="lead-square-footage" className="block text-xs font-medium text-slate-600 mb-1.5">Square Footage (optional)</label>
               <input
+                id="lead-square-footage"
                 type="number"
                 name="squareFootage"
                 value={formData.squareFootage}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
                 placeholder="e.g. 2200"
               />
             </div>
@@ -190,8 +194,9 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
 
           {/* Address with Mapbox autocomplete */}
           <div className="relative">
-            <label className="block text-xs font-medium text-slate-600 mb-1">Property Address / Area</label>
+            <label htmlFor="lead-address" className="block text-xs font-medium text-slate-600 mb-1">Property Address / Area</label>
             <input
+              id="lead-address"
               type="text"
               name="address"
               value={formData.address}
@@ -204,7 +209,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
                   selectAddress(addressSuggestions[0]);
                 }
               }}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none pr-10"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none pr-10 md:py-2.5 md:text-sm"
               placeholder="Start typing your address for autocomplete..."
             />
             {isLoadingSuggestions && (
@@ -229,24 +234,35 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
                 ))}
               </div>
             )}
-            <p className="text-[10px] text-slate-500 mt-1">
+            <p className="text-xs text-slate-500 mt-1">
               Autocomplete powered by Mapbox • Helps us estimate sq footage & prepare accurate quote
             </p>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-slate-600 mb-1">What do you need painted?</label>
+            <label htmlFor="lead-details" className="block text-xs font-medium text-slate-600 mb-1">What do you need painted?</label>
             <textarea
+              id="lead-details"
               name="details"
               value={formData.details}
               onChange={handleChange}
               rows={3}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm placeholder:text-slate-400 focus:border-slate-900 focus:outline-none"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
               placeholder="Interior of 3 bedrooms + living room, or full exterior repaint..."
             />
           </div>
         </>
       )}
+
+      {/* Honeypot for spam protection - hidden from users */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        className="absolute -left-[9999px]"
+        aria-hidden="true"
+      />
 
       <button
         type="submit"
@@ -264,7 +280,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
         </p>
       )}
 
-      <p className="text-center text-[10px] text-slate-500">
+      <p className="text-center text-xs text-slate-500">
         We usually reply within 15 minutes. No obligation.
       </p>
     </form>

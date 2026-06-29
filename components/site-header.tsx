@@ -4,16 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { Phone, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#process", label: "Process" },
-    { href: "/projects", label: "Projects" },
-    { href: "#areas", label: "Areas" },
-    { href: "/contact", label: "Contact" },
+    { href: "/#services", label: "Services" },
+    { href: "/#process",  label: "Process" },
+    { href: "/projects",  label: "Projects" },
+    { href: "/#areas",    label: "Areas" },
+    { href: "/contact",   label: "Contact" },
+    { href: "/blog",      label: "Blog" },
   ];
 
   return (
@@ -22,22 +24,26 @@ export function SiteHeader() {
         {/* Logo from concept-02-stacked: icon + text on mobile, full horizontal logo on desktop */}
         <Link href="/" className="flex items-center gap-3">
           {/* Mobile: icon mark + full "SunCoat Painting" name */}
-          <img 
+          <Image 
             src="/logos/icon.svg" 
             alt="SunCoat" 
+            width={36}
+            height={36}
             className="h-9 w-9 flex-shrink-0 md:hidden" 
           />
           <div className="md:hidden">
             <div className="text-base font-semibold tracking-tight text-slate-950 leading-none">
               {siteConfig.brand}
             </div>
-            <div className="text-[10px] -mt-0.5 text-slate-500">Central Florida</div>
+            <div className="text-xs -mt-0.5 text-slate-500">Central Florida</div>
           </div>
 
           {/* Desktop + iPad: horizontal logo (icon + wordmark) from the kit */}
-          <img 
+          <Image 
             src="/logos/horizontal-primary.svg" 
             alt="SunCoat Painting" 
+            width={113}
+            height={32}
             className="hidden h-8 md:block" 
           />
         </Link>
@@ -53,13 +59,12 @@ export function SiteHeader() {
               {link.label}
             </a>
           ))}
-          <Link href="/blog" className="hover:text-slate-950 transition-colors">Blog</Link>
         </nav>
 
         {/* Desktop + iPad CTAs */}
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="#quote"
+            href="/#quote"
             className="rounded-full border border-slate-300 px-4 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
           >
             Get quote
@@ -87,6 +92,8 @@ export function SiteHeader() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-700"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -95,7 +102,7 @@ export function SiteHeader() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white">
+        <div id="mobile-nav" className="lg:hidden border-t border-slate-200 bg-white">
           <nav className="flex flex-col px-4 py-4 text-sm">
             {navLinks.map((link) => (
               <a
@@ -115,7 +122,7 @@ export function SiteHeader() {
               Blog
             </Link>
             <a
-              href="#quote"
+              href="/#quote"
               className="mt-2 rounded-full border border-slate-300 py-2.5 text-center font-medium text-slate-700"
               onClick={() => setMobileMenuOpen(false)}
             >
