@@ -8,13 +8,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col justify-between gap-y-10 md:flex-row">
           <div>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-3 text-white">
               <Image 
                 src="/logos/icon-mono-white.svg" 
                 alt="SunCoat" 
-                width={28}
-                height={28}
-                className="h-7 w-7" 
+                width={42}
+                height={42}
+                className="h-10 w-10" 
               />
               <span className="font-semibold">{siteConfig.brand}</span>
             </div>

@@ -22,14 +22,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Logo from suncoat-stacked-kit: icon mark (mobile) + stacked logo (desktop) */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-4">
           {/* Mobile: icon mark + full "SunCoat Painting" name */}
           <Image 
             src="/logos/icon.svg" 
             alt="SunCoat" 
-            width={36}
-            height={36}
-            className="h-9 w-9 flex-shrink-0 md:hidden" 
+            width={48}
+            height={48}
+            className="h-12 w-12 flex-shrink-0 md:hidden" 
           />
           <div className="md:hidden">
             <div className="text-base font-semibold tracking-tight text-slate-950 leading-none">
@@ -42,9 +42,9 @@ export function SiteHeader() {
           <Image 
             src="/logos/stacked.svg" 
             alt="SunCoat Painting" 
-            width={80}
-            height={50}
-            className="hidden h-8 md:block" 
+            width={120}
+            height={75}
+            className="hidden h-12 md:block" 
           />
         </Link>
 
