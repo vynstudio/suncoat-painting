@@ -19,27 +19,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        {/* Logo - icon + text on mobile, full horizontal logo on desktop */}
+        {/* Logo - branded icon + SunCoat Painting name (mobile first, consistent across sizes) */}
         <Link href="/" className="flex items-center gap-3">
-          {/* Mobile: icon mark + text */}
           <img 
             src="/logos/icon.svg" 
-            alt="" 
-            className="h-9 w-9 md:hidden" 
+            alt="SunCoat Painting logo" 
+            className="h-9 w-9 flex-shrink-0" 
           />
-          <div className="md:hidden">
-            <div className="text-base font-semibold tracking-tight text-slate-950">
+          <div>
+            <div className="text-base font-semibold tracking-tight text-slate-950 leading-none">
               {siteConfig.brand}
             </div>
             <div className="text-[10px] -mt-0.5 text-slate-500">Central Florida</div>
           </div>
-
-          {/* Desktop/iPad: full branded horizontal logo */}
-          <img 
-            src="/logos/horizontal-primary.svg" 
-            alt="SunCoat Painting" 
-            className="hidden h-8 md:block" 
-          />
         </Link>
 
         {/* Desktop + iPad Navigation (horizontal) */}
