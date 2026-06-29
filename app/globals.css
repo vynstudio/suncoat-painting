@@ -79,3 +79,22 @@ html {
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
 }
+
+/* ============================================
+   HERO BACKGROUND - Device specific
+   Mobile uses original hero.jpg
+   Desktop & iPad use the new before/after transformation image
+   ============================================ */
+.hero-bg {
+  background-image: url('/images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Desktop and iPad hero image (as specified) */
+@media (min-width: 768px) {
+  .hero-bg {
+    background-image: url('/images/hero-desktop.jpg');
+  }
+}

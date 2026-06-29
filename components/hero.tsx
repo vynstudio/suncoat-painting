@@ -4,8 +4,8 @@ import { Clock, FileText, Shield, Phone } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-slate-100 bg-slate-950 text-white">
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10 bg-[url('/images/hero.jpg')] bg-cover bg-center opacity-80" />
+      {/* Background image - desktop/iPad uses the new before/after hero from concept */}
+      <div className="absolute inset-0 -z-10 hero-bg opacity-80" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/70 via-slate-950/60 to-slate-950/40" />
 
       {/* Desktop & iPad Hero */}
