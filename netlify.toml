@@ -48,12 +48,14 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ============================================
-# All required environment variables for the lead pipeline
-# (Set the actual values in the Netlify dashboard)
+# Environment Variables for Lead Pipeline
+# Set these in Netlify UI (Site configuration > Environment variables)
+# Do NOT commit real values here.
 # ============================================
-# RESEND_API_KEY=
-# TELEGRAM_BOT_TOKEN=
-# TELEGRAM_CHAT_ID=
-# HUBSPOT_PRIVATE_APP_TOKEN=
-# OPENPHONE_API_KEY=
-# OPENPHONE_PHONE_NUMBER_ID=
+# RESEND_API_KEY=                 # For sending lead emails via Resend
+# TELEGRAM_BOT_TOKEN=             # Telegram bot token
+# TELEGRAM_CHAT_ID=               # Chat ID to receive Telegram alerts
+# HUBSPOT_PRIVATE_APP_TOKEN=      # HubSpot private app token for CRM
+# OPENPHONE_API_KEY=              # OpenPhone API key
+# OPENPHONE_PHONE_NUMBER_ID=      # OpenPhone phone number ID for SMS
+
