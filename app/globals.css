@@ -80,21 +80,4 @@ html {
   margin-bottom: 0.5rem;
 }
 
-/* ============================================
-   HERO BACKGROUND - Device specific (mobile-first)
-   - Mobile (<768px): uses the dedicated mobile before/after image
-   - Desktop & iPad (≥768px): uses the desktop/iPad before/after image
-   ============================================ */
-.hero-bg {
-  background-image: url('/images/hero-mobile.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
-/* Desktop and iPad hero image */
-@media (min-width: 768px) {
-  .hero-bg {
-    background-image: url('/images/hero-desktop.jpg');
-  }
-}

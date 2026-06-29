@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 export function SiteFooter() {
@@ -8,9 +9,11 @@ export function SiteFooter() {
         <div className="flex flex-col justify-between gap-y-10 md:flex-row">
           <div>
             <div className="flex items-center gap-2 text-white">
-              <img 
+              <Image 
                 src="/logos/icon.svg" 
                 alt="SunCoat" 
+                width={28}
+                height={28}
                 className="h-7 w-7" 
               />
               <span className="font-semibold">{siteConfig.brand}</span>

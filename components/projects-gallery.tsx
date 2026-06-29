@@ -1,5 +1,6 @@
 import { Paintbrush } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import Image from "next/image";
 
 const projects = [
   {
@@ -31,7 +32,7 @@ export function ProjectsGallery() {
             <div className="text-xs font-semibold tracking-[2px] text-amber-600">RECENT WORK</div>
             <h2 className="mt-1 text-3xl font-semibold tracking-tighter">Homes we’ve transformed across Central Florida</h2>
           </div>
-          <a href="#quote" className="hidden text-sm font-medium text-amber-600 hover:text-amber-700 md:block">
+          <a href="/projects" className="hidden text-sm font-medium text-amber-600 hover:text-amber-700 md:block">
             See more projects →
           </a>
         </div>
@@ -41,12 +42,14 @@ export function ProjectsGallery() {
           {projects.map((project, index) => (
             <div key={index} className="group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition hover:shadow-md">
               <div className="relative aspect-[16/11] overflow-hidden bg-slate-200">
-                <img
+                <Image
                   src={project.image}
                   alt={`${project.title} - ${project.location} residential painting project by ${siteConfig.brand}`}
-                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition duration-300 group-hover:scale-[1.02]"
                 />
-                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-[10px] font-medium text-slate-700 shadow md:left-4 md:top-4 md:text-xs md:px-3 md:py-1">
+                <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-medium text-slate-700 shadow md:left-4 md:top-4 md:text-xs md:px-3 md:py-1">
                   <Paintbrush className="h-3 w-3" /> {project.tag}
                 </div>
               </div>

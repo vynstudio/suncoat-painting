@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { Phone, X } from "lucide-react";
 import { LeadForm } from "./lead-form";
@@ -29,13 +30,12 @@ export function StickyCTA() {
           </a>
 
           {/* Secondary quote CTA */}
-          <button
-            onClick={() => setOpen(true)}
+          <Link
+            href="/#quote"
             className="flex flex-1 items-center justify-center gap-2 bg-amber-500 active:bg-amber-600 text-white font-semibold text-[15px] active:scale-[0.985] transition-all"
-            aria-label="Open quote form"
           >
             Get Free Quote
-          </button>
+          </Link>
         </div>
       </div>
 
