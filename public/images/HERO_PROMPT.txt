@@ -1,0 +1,28 @@
+HERO IMAGE — generate with Midjourney / DALL·E / Ideogram, then save the
+result in THIS folder as:  hero.jpg   (wide, ~16:9, ~2400px, optimized < 400KB)
+
+--- PROMPT ---
+Wide hero image for a professional house and commercial painting company
+website. A modern two-story home in a suburban neighborhood, shown in a clear
+"before and after" composition: the left half of the façade has old, faded,
+uneven paint with minor imperfections, and the right half shows fresh, smooth,
+high-quality paint in elegant neutral tones. In front of the house, a clean
+driveway and simple landscaping.
+
+In the background, subtly blended, a bright office interior with freshly
+painted walls, clean white trim, and modern furniture, suggesting that the
+company also paints commercial spaces. The overall style is realistic
+photography, with crisp details, soft natural daylight, and balanced exposure.
+No people, no text, no logos rendered.
+
+The color palette uses navy blue accents, warm whites, and a touch of soft gold
+to feel premium and trustworthy. The composition leaves negative space on the
+RIGHT side to overlay website headline and call-to-action buttons. The mood
+should communicate professionalism, care, and high-end results, like a
+portfolio shot from a top painting studio rather than generic stock or abstract
+AI art.
+
+--- TECHNICAL HINTS ---
+Midjourney: append  --ar 16:9 --style raw --q 2
+The layout already darkens the RIGHT third with a navy gradient so white text
+stays readable — keep the visual interest (the house) on the LEFT/center.
