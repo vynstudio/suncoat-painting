@@ -76,7 +76,7 @@ export function StickyCTA() {
 
             {/* Form */}
             <div className="p-5 overflow-auto flex-1">
-              <LeadForm source="sticky-mobile" variant="compact" />
+              <LeadForm source="sticky-mobile" />
             </div>
 
             {/* Bottom helper */}
