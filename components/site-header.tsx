@@ -27,9 +27,9 @@ export function SiteHeader() {
           <Image 
             src="/logos/icon.svg" 
             alt="SunCoat" 
-            width={48}
-            height={48}
-            className="h-12 w-12 flex-shrink-0 md:hidden" 
+            width={56}
+            height={56}
+            className="h-14 w-14 flex-shrink-0 md:hidden" 
           />
           <div className="md:hidden">
             <div className="text-base font-semibold tracking-tight text-slate-950 leading-none">
@@ -42,9 +42,9 @@ export function SiteHeader() {
           <Image 
             src="/logos/stacked.svg" 
             alt="SunCoat Painting" 
-            width={120}
-            height={75}
-            className="hidden h-12 md:block" 
+            width={105}
+            height={89}
+            className="hidden h-14 md:block" 
           />
         </Link>
 

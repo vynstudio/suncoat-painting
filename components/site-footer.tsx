@@ -12,9 +12,9 @@ export function SiteFooter() {
               <Image 
                 src="/logos/icon-mono-white.svg" 
                 alt="SunCoat" 
-                width={42}
-                height={42}
-                className="h-10 w-10" 
+                width={48}
+                height={48}
+                className="h-12 w-12" 
               />
               <span className="font-semibold">{siteConfig.brand}</span>
             </div>
