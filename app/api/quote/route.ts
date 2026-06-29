@@ -29,6 +29,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "invalid json" }, { status: 400 });
   }
 
+  // Honeypot: silently accept if filled (bots)
+  if (body.company) {
+    return NextResponse.json({ ok: true }, { status: 200 });
+  }
+
   const name = String(body.name ?? "").trim();
   const phone = String(body.phone ?? "").trim();
   if (!name || !phone) {

@@ -102,14 +102,7 @@ export const siteConfig = {
     "Central Florida painters",
   ],
 
-  // For structured data
-  address: {
-    streetAddress: "123 Main St", // TODO: replace with real
-    addressLocality: "Orlando",
-    addressRegion: "FL",
-    postalCode: "32801",
-    addressCountry: "US",
-  },
+  // For structured data - service-area business, no physical storefront address published
   geo: {
     latitude: 28.5383,
     longitude: -81.3792,
@@ -120,7 +113,8 @@ export const siteConfig = {
     "Altamonte Springs, FL",
     "Winter Garden, FL",
     "Clermont, FL",
-    "Central Florida",
+    "Oviedo, FL",
+    "Maitland, FL",
   ],
 } as const;
 

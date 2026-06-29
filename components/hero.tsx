@@ -1,11 +1,19 @@
 import { siteConfig } from "@/lib/site-config";
 import { Clock, FileText, Shield, Phone } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-slate-100 bg-slate-950 text-white">
-      {/* Background image: mobile uses hero-mobile.jpg, desktop/iPad uses hero-desktop.jpg */}
-      <div className="absolute inset-0 -z-10 hero-bg opacity-80" />
+      {/* Hero background - next/image for LCP priority, responsive */}
+      <Image
+        src="/images/hero-desktop.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover opacity-80"
+      />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/70 via-slate-950/60 to-slate-950/40" />
 
       {/* Desktop & iPad Hero */}
@@ -27,7 +35,7 @@ export function Hero() {
           {/* Desktop/iPad CTAs side-by-side, Mobile stacked */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <a
-              href="#quote"
+              href="/#quote"
               className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-base font-semibold text-slate-950 shadow-sm transition hover:bg-amber-100"
             >
               Get a free quote

@@ -3,14 +3,13 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { StickyCTA } from "@/components/sticky-cta";
 
+const TITLE = `${siteConfig.brand} | House Painting in Orlando & Central Florida`;
+const DESCRIPTION = siteConfig.description;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: `${siteConfig.brand} | House Painting Orlando & Central Florida`,
-    template: `%s | ${siteConfig.brand}`,
-  },
-  description: siteConfig.description,
-  keywords: [...siteConfig.keywords],
+  title: TITLE,
+  description: DESCRIPTION,
   authors: [{ name: siteConfig.brand }],
   icons: {
     icon: [
@@ -20,33 +19,24 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
-  alternates: {
-    canonical: siteConfig.url,
-  },
-
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   openGraph: {
-    title: `${siteConfig.brand} — Professional House Painting in Orlando & Central Florida`,
-    description: siteConfig.description,
-    images: [{ url: "/images/hero.jpg" }],
+    title: TITLE,
+    description: DESCRIPTION,
+    url: siteConfig.url,
+    siteName: siteConfig.brand,
     locale: "en_US",
     type: "website",
+    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "SunCoat Painting — residential painting in Central Florida" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.brand} | Residential Painting Central Florida`,
-    description: siteConfig.description,
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/images/hero.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  // keywords removed intentionally — ignored by Google, only exposes targeting.
 };
 
 export const viewport = {
@@ -58,26 +48,28 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "HousePainter"],
       "@id": `${siteConfig.url}/#business`,
       name: siteConfig.brand,
       url: siteConfig.url,
       telephone: siteConfig.phoneDisplay,
       email: siteConfig.email,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: siteConfig.address.streetAddress,
-        addressLocality: siteConfig.address.addressLocality,
-        addressRegion: siteConfig.address.addressRegion,
-        postalCode: siteConfig.address.postalCode,
-        addressCountry: siteConfig.address.addressCountry,
+      image: `${siteConfig.url}/images/hero.jpg`,
+      priceRange: "$$",
+      areaServed: [
+        { "@type": "City", "name": "Orlando" },
+        { "@type": "City", "name": "Winter Park" },
+        { "@type": "City", "name": "Altamonte Springs" },
+        { "@type": "City", "name": "Winter Garden" },
+        { "@type": "City", "name": "Clermont" },
+        { "@type": "City", "name": "Oviedo" },
+        { "@type": "City", "name": "Maitland" },
+      ],
+      serviceArea: {
+        "@type": "GeoCircle",
+        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": siteConfig.geo.latitude, "longitude": siteConfig.geo.longitude },
+        "geoRadius": 48000
       },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: siteConfig.geo.latitude,
-        longitude: siteConfig.geo.longitude,
-      },
-      areaServed: siteConfig.areaServed,
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -85,8 +77,6 @@ const jsonLd = {
         closes: "18:00",
       },
       description: siteConfig.description,
-      image: `${siteConfig.url}/images/hero.jpg`,
-      priceRange: "$$",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Residential Painting Services",
