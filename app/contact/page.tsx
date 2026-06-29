@@ -28,7 +28,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="mt-10 max-w-xl rounded-3xl border border-slate-200 bg-slate-50 p-8">
+        <div className="mt-10 max-w-xl rounded-3xl border border-slate-200 bg-slate-50 p-8 pb-20 md:pb-8 quote-section">
           <LeadForm source="contact-page" />
         </div>
       </main>

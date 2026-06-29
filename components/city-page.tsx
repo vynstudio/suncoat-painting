@@ -144,7 +144,7 @@ export function CityPage({ city, introText, whyParagraph, services, neighborhood
       </div>
 
       {/* Quote Form - Styled like homepage */}
-      <div className="section-padding bg-white">
+      <div className="section-padding bg-white pb-20 md:pb-0 quote-section">
         <div className="mx-auto max-w-3xl px-4">
           <div className="text-center mb-8">
             <div className="text-xs font-semibold tracking-[2px] text-amber-600">GET STARTED IN {city.name.toUpperCase()}</div>

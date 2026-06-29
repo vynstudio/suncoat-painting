@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* Lead capture section - responsive for all devices */}
-      <section id="quote" className="bg-white section-padding">
+      <section id="quote" className="bg-white section-padding pb-20 md:pb-0 quote-section">
         <div className="mx-auto max-w-3xl px-4">
           <div className="text-center">
             <div className="text-xs font-semibold tracking-[2px] text-amber-600">START YOUR PROJECT</div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
+import { StickyCTA } from "@/components/sticky-cta";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -151,6 +152,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
         {children}
+        <StickyCTA />
       </body>
     </html>
   );

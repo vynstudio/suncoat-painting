@@ -63,14 +63,15 @@ export function SiteHeader() {
           </a>
         </div>
 
-        {/* Mobile only: Hamburger + compact Call button */}
+        {/* Mobile only: Hamburger + prominent phone number */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href={siteConfig.phoneHref}
-            className="flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white"
+            className="flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white active:bg-black"
+            aria-label={`Call ${siteConfig.phoneDisplay}`}
           >
             <Phone className="h-3.5 w-3.5" />
-            Call
+            {siteConfig.phoneDisplay}
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

@@ -48,7 +48,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="border-t border-slate-100 bg-slate-50 section-padding">
+      <div className="border-t border-slate-100 bg-slate-50 section-padding pb-20 md:pb-0 quote-section">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-2xl font-semibold tracking-tight mb-4">Ready to transform your home?</h2>
           <p className="text-slate-600 mb-6">We're proud of every project. Let's make yours the next one on this page.</p>

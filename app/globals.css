@@ -9,13 +9,37 @@ html {
 }
 
 /* ============================================
-   DEVICE-SPECIFIC OPTIMIZATIONS
+   MOBILE-FIRST + DEVICE-SPECIFIC OPTIMIZATIONS
    ============================================ */
 
-/* Mobile ( < 768px ) - Optimized for thumb reach, stacked layouts, large taps */
+/* Base styles are mobile-first. Everything below enhances larger screens. */
+
+/* Strong mobile defaults */
 @media (max-width: 767px) {
   .section-padding {
     @apply py-10;
+  }
+
+  /* Extra breathing room so sticky CTA doesn't cover important content */
+  .quote-section,
+  #quote,
+  .mobile-safe-bottom {
+    padding-bottom: 5.5rem !important;
+  }
+
+  /* Large, comfortable tap targets everywhere on mobile */
+  a, button {
+    min-height: 48px;
+  }
+
+  /* Form inputs are already large; ensure comfortable line height */
+  input, textarea, select {
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+
+  /* Slightly tighter but still readable prose on mobile */
+  .prose h2 {
+    font-size: 1.35rem;
   }
 }
 
@@ -25,7 +49,6 @@ html {
     @apply py-14;
   }
   
-  /* Slightly larger tap targets on iPad */
   a, button {
     min-height: 44px;
   }
@@ -37,9 +60,16 @@ html {
     @apply py-20;
   }
   
-  /* Desktop: slightly more breathing room */
   .prose h2 {
     font-size: 1.5rem;
+  }
+}
+
+/* Sticky CTA bar polish (mobile only) */
+@media (max-width: 767px) {
+  /* Make sure the sticky bar never gets covered by browser chrome */
+  .sticky-cta-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
 
