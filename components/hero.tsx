@@ -12,7 +12,7 @@ export function Hero() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs tracking-[1.5px] text-white/80 backdrop-blur">
-            {siteConfig.serviceAreaLabel} • {siteConfig.licenseInfo}
+            {siteConfig.serviceAreaLabel}
           </div>
 
           {/* Responsive Typography: Mobile < iPad < Desktop */}

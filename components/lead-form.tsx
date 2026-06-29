@@ -93,7 +93,7 @@ export function LeadForm({ variant = "default", source = "homepage" }: LeadFormP
             onChange={handleChange}
             required
             className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base placeholder:text-slate-400 focus:border-slate-900 focus:outline-none md:py-2.5 md:text-sm"
-            placeholder="(407) 555-1234"
+            placeholder="(321) 758-0094"
           />
         </div>
       </div>

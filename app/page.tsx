@@ -26,8 +26,8 @@ const faqs = [
     a: "Yes. We specialize in full interior painting, exterior house painting, trim, doors, cabinets, and decks across Central Florida.",
   },
   {
-    q: "Are you licensed and insured?",
-    a: `${siteConfig.brand} is fully licensed and insured in Florida with background-checked crews.`,
+    q: "Are your crews background-checked?",
+    a: `Yes. Every member of the ${siteConfig.brand} team is background-checked and trained to work carefully in your home.`,
   },
   {
     q: "What preparation do you do before painting?",

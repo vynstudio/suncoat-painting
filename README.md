@@ -3,7 +3,7 @@
 Professional lead-generation + local SEO site for a Central Florida residential painting company.
 
 ## Current Working Brand
-`SunCoat Painting` (domain: suncoatingpainting.com)
+`SunCoat Painting` (domain: suncoatpainting.com)
 
 ## Key Features (Scaffolded)
 - Strong homepage with hero, services, projects, process, testimonials, local areas
@@ -50,14 +50,33 @@ git push -u origin main
    - Publish directory: `.next`
 5. Click Deploy.
 
-Optional: In Site settings → Environment variables, add any you need:
-- `TELEGRAM_BOT_TOKEN`
-- `TELEGRAM_CHAT_ID`
+### Required Environment Variables
+
+**Local development:**
+Copy `.env.example` to `.env.local` and fill the values.
+
+**Netlify (production):**
+Set these in Netlify Dashboard → Site configuration → Environment variables:
+
+```bash
+RESEND_API_KEY=
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+HUBSPOT_PRIVATE_APP_TOKEN=
+OPENPHONE_API_KEY=
+OPENPHONE_PHONE_NUMBER_ID=
+```
+
+The lead form (`/api/quote`) sends notifications via:
+- Email (Resend)
+- Telegram
+- HubSpot (creates/updates contact)
+- OpenPhone (SMS alert)
 
 ### 3. Connect your custom domain
 
 1. Netlify → Domain settings → **Add custom domain**
-2. Add `suncoatingpainting.com`
+2. Add `suncoatpainting.com` (or your actual domain)
 3. Follow the DNS instructions (Netlify will give you the exact records).
 
 The lead form (`/api/quote`) uses Next.js API routes and will work as serverless functions on Netlify.

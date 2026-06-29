@@ -15,7 +15,7 @@ export default function About() {
           <p className="mt-4">Our crews are background-checked, consistent, and trained to treat every home with care. We believe great painting starts long before the first coat goes on.</p>
         </div>
         <div className="mt-8 text-sm text-slate-600">
-          {siteConfig.yearsExperience}+ years • {siteConfig.licenseInfo}
+          {siteConfig.yearsExperience}+ years serving Central Florida
         </div>
       </div>
       <SiteFooter />

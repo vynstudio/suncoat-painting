@@ -1,6 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { LeadForm } from "@/components/lead-form";
+import { CityPage } from "@/components/city-page";
 import { siteConfig, getCityBySlug } from "@/lib/site-config";
 
 const city = getCityBySlug("winter-park")!;
@@ -9,34 +9,66 @@ export async function generateMetadata() {
   return {
     title: `House Painting in Winter Park, FL | ${siteConfig.brand}`,
     description: `Expert house painting in Winter Park. Interior, exterior & historic home painting with premium finishes. Free quotes for ${city.fullName}.`,
-    openGraph: {
-      title: `Winter Park Painters | ${siteConfig.brand}`,
-    },
   };
 }
+
+const cityJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "House Painting",
+  provider: {
+    "@type": "LocalBusiness",
+    name: siteConfig.brand,
+    url: siteConfig.url,
+  },
+  areaServed: {
+    "@type": "City",
+    name: city.fullName,
+  },
+  description: `Professional interior and exterior house painting services in ${city.fullName}.`,
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+    { "@type": "ListItem", position: 2, name: `Painting in ${city.name}`, item: `${siteConfig.url}/${city.slug}-painting` },
+  ],
+};
 
 export default function WinterParkPainting() {
   return (
     <>
-      <SiteHeader />
-      <div className="border-b border-slate-100 bg-slate-50 py-14">
-        <div className="mx-auto max-w-4xl px-4">
-          <h1 className="text-4xl font-semibold tracking-tighter">House Painting in Winter Park, FL</h1>
-          <p className="mt-2 text-lg text-slate-600">Specializing in beautiful finishes for Winter Park’s classic and modern homes.</p>
-        </div>
-      </div>
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        <p className="max-w-prose text-slate-700">
-          From charming bungalows near Park Avenue to larger estates, we deliver meticulous prep and elegant results. Many Winter Park clients ask for specific historic color palettes — we’re happy to help.
-        </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cityJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
 
-        <div className="mt-10 rounded-3xl bg-white border p-8">
-          <h3 className="font-semibold">Get a quote for your Winter Park home</h3>
-          <div className="mt-5 max-w-md">
-            <LeadForm variant="compact" source="winter-park-page" />
-          </div>
-        </div>
-      </div>
+      <SiteHeader />
+
+      <CityPage
+        city={city}
+        introText="Specializing in beautiful finishes for Winter Park’s classic and modern homes."
+        whyParagraph="Winter Park is known for its charming homes, tree-lined streets, and historic character near Park Avenue. Our crews are skilled at delivering crisp, elegant finishes that respect the architectural details of both older properties and newer builds."
+        services={[
+          "Interior painting with attention to historic details",
+          "Exterior painting for classic Florida homes",
+          "Fine trim and millwork restoration",
+          "Color consultation for sophisticated palettes"
+        ]}
+        neighborhoods="We serve homes throughout Winter Park, including areas near Park Avenue, the historic district, and neighborhoods bordering Orlando and Maitland."
+        relatedPosts={[
+          { title: "Best Time to Paint in Central Florida", href: "/blog/best-time-to-paint-central-florida" },
+          { title: "How to Prepare Your Home for Painting", href: "/blog/how-to-prepare-your-home-for-painting" },
+          { title: "Best Exterior Paint Colors for Florida Homes", href: "/blog/best-exterior-paint-colors-florida-homes" },
+        ]}
+      />
+
       <SiteFooter />
     </>
   );

@@ -18,7 +18,7 @@ export default function Privacidad() {
           </ul>
           <p>We do not sell your data. We may use secure third-party services (CRM, messaging) to manage leads.</p>
           <h2 className="font-semibold mt-6">Your rights</h2>
-          <p>You may request to access, correct, or delete your information by contacting us at hello@centralprimepainting.com or (407) 555-0142.</p>
+          <p>You may request to access, correct, or delete your information by contacting us at hello@suncoatpainting.com or (321) 758-0094.</p>
           <p className="text-xs text-slate-500 mt-8">This is placeholder privacy text. Replace with your full policy before launch.</p>
         </div>
         <div className="mt-10 text-xs">

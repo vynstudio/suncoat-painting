@@ -22,12 +22,12 @@ export const siteConfig = {
     "Professional residential painting in Central Florida. Expert prep, clean process, and beautiful results that stand up to Florida sun, humidity, and storms.",
 
   // === CONTACT ===
-  phoneDisplay: "(407) 555-0192",
-  phoneHref: "tel:+14075550192",
-  whatsappNumber: "14075550192", // digits only, no +
+  phoneDisplay: "(321) 758-0094",
+  phoneHref: "tel:+13217580094",
+  whatsappNumber: "13217580094", // digits only, no +
   whatsappMessage:
     "Hi, I'd like a free quote for house painting. Can we schedule a quick walkthrough?",
-  email: "hello@suncoatingpainting.com",
+  email: "hello@suncoatpainting.com",
 
   // === SERVICE AREA (Central Florida focus for local SEO) ===
   primaryCity: "Orlando",
@@ -88,8 +88,7 @@ export const siteConfig = {
 
   // === BUSINESS DETAILS ===
   yearsExperience: "12",
-  licenseInfo: "Licensed & Insured in Florida",
-  url: "https://suncoatingpainting.com",
+  url: "https://suncoatpainting.com",
 
   // === SEO / LOCAL SEO ===
   keywords: [

@@ -12,7 +12,7 @@ export default function AvisoLegal() {
           <p><strong>CentralPrime Painting</strong> — Professional residential painting services.</p>
           <p>This website is provided for informational purposes. All content, images, and copy are the property of CentralPrime Painting unless otherwise noted.</p>
           <h2 className="font-semibold mt-6">Contact Information</h2>
-          <p>Phone: (407) 555-0142<br />Email: hello@centralprimepainting.com<br />Service Area: Central Florida (Orlando metro and surrounding)</p>
+          <p>Phone: (321) 758-0094<br />Email: hello@suncoatpainting.com<br />Service Area: Central Florida (Orlando metro and surrounding)</p>
           <p className="text-xs text-slate-500 mt-8">Last updated: June 2026. This is placeholder legal text. Consult an attorney for final version.</p>
         </div>
         <div className="mt-10 text-xs">

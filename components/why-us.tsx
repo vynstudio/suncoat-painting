@@ -3,8 +3,8 @@ import { ShieldCheck, Clock, Award, Users } from "lucide-react";
 const reasons = [
   {
     icon: ShieldCheck,
-    title: "Fully Insured & Vetted",
-    desc: "Background-checked crews with full liability insurance for your complete peace of mind.",
+    title: "Vetted & Professional Crews",
+    desc: "Background-checked teams trained to deliver clean, high-quality work on every project.",
   },
   {
     icon: Clock,
