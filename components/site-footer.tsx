@@ -8,9 +8,11 @@ export function SiteFooter() {
         <div className="flex flex-col justify-between gap-y-10 md:flex-row">
           <div>
             <div className="flex items-center gap-2 text-white">
-              <div className="flex h-7 w-7 items-center justify-center rounded bg-white text-[10px] font-bold tracking-widest text-slate-950">
-                {siteConfig.brandShort}
-              </div>
+              <img 
+                src="/logos/icon.svg" 
+                alt="SunCoat" 
+                className="h-7 w-7" 
+              />
               <span className="font-semibold">{siteConfig.brand}</span>
             </div>
             <p className="mt-3 max-w-xs text-sm">{siteConfig.tagline}</p>

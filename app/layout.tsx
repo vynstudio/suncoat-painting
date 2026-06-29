@@ -13,11 +13,17 @@ export const metadata: Metadata = {
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.brand }],
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon.png",
   },
+  manifest: "/site.webmanifest",
   alternates: {
     canonical: siteConfig.url,
   },
+
   openGraph: {
     title: `${siteConfig.brand} — Professional House Painting in Orlando & Central Florida`,
     description: siteConfig.description,
@@ -41,6 +47,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+};
+
+export const viewport = {
+  themeColor: '#0f172a',
 };
 
 // Strong LocalBusiness + Service structured data for SEO

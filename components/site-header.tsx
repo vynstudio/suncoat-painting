@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { Phone, Paintbrush, Menu, X } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,17 +19,27 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        {/* Logo */}
+        {/* Logo - icon + text on mobile, full horizontal logo on desktop */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white">
-            <Paintbrush className="h-4 w-4" />
-          </div>
-          <div>
+          {/* Mobile: icon mark + text */}
+          <img 
+            src="/logos/icon.svg" 
+            alt="" 
+            className="h-9 w-9 md:hidden" 
+          />
+          <div className="md:hidden">
             <div className="text-base font-semibold tracking-tight text-slate-950">
               {siteConfig.brand}
             </div>
             <div className="text-[10px] -mt-0.5 text-slate-500">Central Florida</div>
           </div>
+
+          {/* Desktop/iPad: full branded horizontal logo */}
+          <img 
+            src="/logos/horizontal-primary.svg" 
+            alt="SunCoat Painting" 
+            className="hidden h-8 md:block" 
+          />
         </Link>
 
         {/* Desktop + iPad Navigation (horizontal) */}
